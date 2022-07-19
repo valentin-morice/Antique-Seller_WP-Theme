@@ -85,4 +85,19 @@
     </div>
 </section>
 
+<section>
+    <div class="container mb-5">
+        <h2 class="pb-3 pt-5">Finding Us</h2>
+        <div class="row align-items-center mb-4 gx-5">
+            <div class="col-lg">
+                <h3>Some Heading</h3>
+                <p class="lh-base pb-lg-3 mb-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eius perferendis nisi ducimus repudiandae consectetur praesentium, numquam tempora vel fugiat reprehenderit deserunt suscipit, provident iste culpa aliquid similique, doloribus beatae adipisci quos magnam error.</p>
+                <button class="btn btn-primary text-white me-1 mb-5 mb-lg-0">Contact Us</button>
+                <button type="button" class="btn btn-secondary mb-5 mb-lg-0">Phone Us</button>
+            </div>
+            <img src="<?php echo get_template_directory_uri() . "/img/map.png" ?>" alt="Bookshelf" class="col-lg">
+        </div>
+    </div>
+</section>
+
 <?php get_footer(); ?>
