@@ -25,7 +25,7 @@
 <section>
     <div class="container">
         <h2 class="pb-3 pt-5">Latest Entries</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3  g-4 mb-5">
             <?php 
             // Build Antique Query
             $homepageAntiques = new WP_Query(array(
@@ -39,12 +39,12 @@
                 $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
                 ?>
                 <div class="col">
-                    <div class="card">
+                    <div class="card h-100">
                         <img src="<?php echo $image[0]; ?>" class="card-img-top" alt="New Antique Thumbnail">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h3 class="card-title"><?php the_title(); ?></h3>
                             <p class="card-text"><?php echo wp_trim_words( get_the_content(), 24 ) ?></p>
-                            <a href="<?php the_permalink(); ?>" class="btn btn-primary text-light">Learn More</a>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-primary text-light mt-auto align-self-start">Learn More</a>
                         </div>
                     </div>
                 </div>
