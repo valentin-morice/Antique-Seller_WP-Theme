@@ -1,0 +1,64 @@
+// CONFIG FILE
+// Once inside the folder theme, run sass --watch scss/config.scss:css/main.css to compile your changes
+
+// Custom Colors
+$primary: #5f939f;
+
+// Custom Fonts
+* {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  color: #444;
+}
+
+.btn {
+  font-weight: 700 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111;
+  font-family: "Cormorant SC", serif;
+}
+
+h2 {
+  font-size: 2.5rem !important;
+}
+
+p {
+  font-size: 18px;
+}
+
+// Cards Images
+.card-img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+// Favcat Index Styles
+.favcatBox {
+  background-image: url(../img/favcat.jpg);
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.favcatBox:hover {
+  transform: translateY(-10px);
+}
+
+.favcatBox > p {
+  font-weight: 700;
+  text-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+}
+
+// Import Bootstrap
+@import "..//node_modules/bootstrap/scss/bootstrap";
