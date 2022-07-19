@@ -86,9 +86,9 @@
 </section>
 
 <section>
-    <div class="container mb-5">
+    <div class="container" style="margin-bottom: 116px;">
         <h2 class="pb-3 pt-5">Finding Us</h2>
-        <div class="row align-items-center mb-4 gx-5">
+        <div class="row align-items-center gx-5">
             <div class="col-lg">
                 <h3>Some Heading</h3>
                 <p class="lh-base pb-lg-3 mb-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eius perferendis nisi ducimus repudiandae consectetur praesentium, numquam tempora vel fugiat reprehenderit deserunt suscipit, provident iste culpa aliquid similique, doloribus beatae adipisci quos magnam error.</p>
