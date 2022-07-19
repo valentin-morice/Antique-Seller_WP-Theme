@@ -26,36 +26,30 @@
     <div class="container">
         <h2 class="pb-3 pt-5">Latest Entries</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
-            <div class="col">
-                <div class="card">
-                    <img src="<?php echo get_template_directory_uri() . "/img/card1.jpg" ?>" class="card-img-top" alt="New Article">
-                    <div class="card-body">
-                        <h3 class="card-title">Card title</h3>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary text-light">Go somewhere</a>
+            <?php 
+            // Build Antique Query
+            $homepageAntiques = new WP_Query(array(
+                'posts_per_page' => 3,
+                'post_type' => 'antique',
+            ));
+
+            // Call Antique Posts
+            while($homepageAntiques->have_posts()) {
+                $homepageAntiques->the_post(); 
+                $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
+                ?>
+                <div class="col">
+                    <div class="card">
+                        <img src="<?php echo $image[0]; ?>" class="card-img-top" alt="New Antique Thumbnail">
+                        <div class="card-body">
+                            <h3 class="card-title"><?php the_title(); ?></h3>
+                            <p class="card-text"><?php echo wp_trim_words( get_the_content(), 24 ) ?></p>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-primary text-light">Learn More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="<?php echo get_template_directory_uri() . "/img/card2.jpg" ?>" class="card-img-top" alt="New Article">
-                    <div class="card-body">
-                        <h3 class="card-title">Card title</h3>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary text-light">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <img src="<?php echo get_template_directory_uri() . "/img/card3.jpg" ?>" class="card-img-top" alt="New Article">
-                    <div class="card-body">
-                        <h3 class="card-title">Card title</h3>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary text-light">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
+            <?php  }
+            ?>
         </div>
     </div>
 </section>
@@ -86,16 +80,16 @@
 </section>
 
 <section>
-    <div class="container" style="margin-bottom: 116px;">
+    <div class="container mb-5">
         <h2 class="pb-3 pt-5">Finding Us</h2>
-        <div class="row align-items-center gx-5">
-            <div class="col-lg">
+        <div class="row align-items-center mb-4">
+            <div class="col-lg-6">
                 <h3>Some Heading</h3>
                 <p class="lh-base pb-lg-3 mb-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eius perferendis nisi ducimus repudiandae consectetur praesentium, numquam tempora vel fugiat reprehenderit deserunt suscipit, provident iste culpa aliquid similique, doloribus beatae adipisci quos magnam error.</p>
                 <button class="btn btn-primary text-white me-1 mb-5 mb-lg-0">Contact Us</button>
                 <button type="button" class="btn btn-secondary mb-5 mb-lg-0">Phone Us</button>
             </div>
-            <img src="<?php echo get_template_directory_uri() . "/img/map.png" ?>" alt="Bookshelf" class="col-lg">
+            <img src="<?php echo get_template_directory_uri() . "/img/map.png" ?>" alt="Bookshelf" class="col-lg-6">
         </div>
     </div>
 </section>

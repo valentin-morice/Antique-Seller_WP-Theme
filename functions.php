@@ -26,3 +26,6 @@ wp_enqueue_style( 'wpb-google-fonts-headers', 'https://fonts.googleapis.com/css2
 wp_enqueue_style( 'wpb-google-fonts-body', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap', false );
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+// Add Support for Thumbnails
+add_theme_support( 'post-thumbnails' );
