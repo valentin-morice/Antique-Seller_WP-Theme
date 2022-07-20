@@ -79,10 +79,11 @@
     </div>
 </section>
 
+<!-- Finding Us -->
 <section>
     <div class="container mb-5">
         <h2 class="pb-3 pt-5">Finding Us</h2>
-        <div class="row align-items-center mb-4">
+        <div class="row align-items-center" style="margin-bottom: 108px">
             <div class="col-lg-6">
                 <h3>Some Heading</h3>
                 <p class="lh-base pb-lg-3 mb-lg-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eius perferendis nisi ducimus repudiandae consectetur praesentium, numquam tempora vel fugiat reprehenderit deserunt suscipit, provident iste culpa aliquid similique, doloribus beatae adipisci quos magnam error.</p>
