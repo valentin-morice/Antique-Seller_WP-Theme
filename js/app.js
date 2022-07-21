@@ -8,3 +8,23 @@ $(document).ready(function () {
     }
   });
 });
+
+// Listen to Subcategory Select on category.php
+let subcategory;
+$("#selectSubcategories").change(function () {
+  subcategory = $(this).val();
+  console.log(subcategory);
+  if (subcategory) {
+    $("#searchSubcategories").on("click", function () {
+      window.location.href =
+        document.location.origin + "/category/" + subcategory;
+    });
+  }
+});
+
+// Activate Button Only if a Subcategory is Selected
+if (subcategory) {
+  $("#searchSubcategories").on("click", function () {
+    window.location.href = "http://stackoverflow.com";
+  });
+}

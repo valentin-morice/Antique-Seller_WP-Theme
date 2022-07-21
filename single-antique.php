@@ -13,15 +13,22 @@
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post(); 
-                $categories = get_the_category();
                 $currentPostID = get_the_ID();
+                $categories = wp_get_post_categories($currentPostID, [
+                    "fields" => "all",
+                    "parent" => 0,
+                ]);
+                $subcategories = wp_get_post_categories($currentPostID, [
+                    "fields" => "all",
+                    "child_of" => $categories[0]->term_id,
+                ]);
                 ?>
                     <h1 class="mb-5"><?php the_title() ?></h1>
                     <div class="row gx-5 mb-4">
                         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Post Thumbnail" class="col-lg-6 mb-lg-0 mb-3">
                         <div class="col-lg-6">
                             <h2>Some Heading</h2>
-                            <p class="pb-2">Category: <a href="<?php echo get_site_url() . "/category/" . $categories[0]->slug ?>"><?php echo $categories[0]->name ?></a></p>
+                            <p class="pb-2">Category: <a href="<?php echo get_site_url() . "/category/" . $categories[0]->slug ?>"><?php echo $categories[0]->name ?></a>/<a href="<?php echo get_site_url() . "/category/" . $subcategories[0]->slug ?>"><?php echo $subcategories[0]->name ?></a></p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam natus totam est iure molestias eaque molestiae saepe reprehenderit eligendi quos doloremque perspiciatis exercitationem, harum quae. Ab ducimus repudiandae quasi veritatis?</p>
                             <p>PRICE: €4000</p>
                             <button class="btn btn-primary text-white me-1 mb-5 mb-lg-0">Contact Us</button>

@@ -1,8 +1,35 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+$categories = $wp_query->get_queried_object();
+$subcategories = get_categories([
+    "child_of" => $categories->term_id,
+]);
+?>
+
+
 
   <section class="mb-5">
     <div class="container pt-4">
       <h2 class="mb-4">Category: <?php echo single_cat_title(); ?></h2>
+                <?php if($categories->category_parent !== 0) {
+                        $parent = get_category($categories->category_parent);
+                        echo "<p>You are browsing the subcategory \""  . single_cat_title('', false) ."\".<br/>Go back to the parent category <a href='/category/" . $parent->slug . "'>" . $parent->cat_name . "</a>.</p>";
+                    } 
+                ?>
+                <?php if($categories->category_parent === 0) {
+                        get_template_part('template_parts/searchCategories');
+                    } 
+                ?>
+                <?php if ($categories->category_parent === 0) {
+                    foreach ($subcategories as $subcategory) {
+                        echo "<option value='" . $subcategory->slug . "'>" . $subcategory->name . "</option>";
+                    }
+                }
+                ?>
+                <?php if($categories->category_parent === 0) {
+                        get_template_part('template_parts/searchEnd');
+                    } 
+                ?>
     </div>
   </section>
 
