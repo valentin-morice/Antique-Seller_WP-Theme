@@ -21,7 +21,7 @@
                         <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Post Thumbnail" class="col-lg-6 mb-lg-0 mb-3">
                         <div class="col-lg-6">
                             <h2>Some Heading</h2>
-                            <p class="text-uppercase pb-2">Additional Information</p>
+                            <p class="pb-2">Category: <a href="<?php echo get_site_url() . "/category/" . $categories[0]->slug ?>"><?php echo $categories[0]->name ?></a></p>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam natus totam est iure molestias eaque molestiae saepe reprehenderit eligendi quos doloremque perspiciatis exercitationem, harum quae. Ab ducimus repudiandae quasi veritatis?</p>
                             <p>PRICE: €4000</p>
                             <button class="btn btn-primary text-white me-1 mb-5 mb-lg-0">Contact Us</button>

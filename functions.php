@@ -29,3 +29,11 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 
 // Add Support for Thumbnails
 add_theme_support( 'post-thumbnails' );
+
+// Display Antiques in Category Pages
+function my_query_post_type($query) {
+    if ( is_category() && false == $query->query_vars['suppress_filters'] )
+        $query->set( 'post_type', array('antique'));
+    return $query;
+}
+add_filter('pre_get_posts', 'my_query_post_type');
