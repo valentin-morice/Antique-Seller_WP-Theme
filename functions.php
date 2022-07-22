@@ -32,7 +32,7 @@ add_theme_support( 'post-thumbnails' );
 
 // Display Antiques in Category Pages
 function my_query_post_type($query) {
-    if ( is_category() && false == $query->query_vars['suppress_filters'] )
+    if ( is_category() || is_home() && false == $query->query_vars['suppress_filters'] )
         $query->set( 'post_type', array('antique'));
     return $query;
 }

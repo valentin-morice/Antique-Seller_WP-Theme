@@ -1,5 +1,6 @@
 <?php 
-get_header(); 
+get_header();
+// Build Queries 
 $categories = $wp_query->get_queried_object();
 $subcategories = get_categories([
     "child_of" => $categories->term_id,
@@ -7,7 +8,7 @@ $subcategories = get_categories([
 ?>
 
 
-
+  <!-- Conditionally Display Search Filter or Go Back Link -->
   <section class="mb-5">
     <div class="container pt-4">
       <h2 class="mb-4">Category: <?php echo single_cat_title(); ?></h2>
@@ -33,6 +34,7 @@ $subcategories = get_categories([
     </div>
   </section>
 
+  <!-- Display Posts from Category -->
   <section>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3  g-4 mb-5">
