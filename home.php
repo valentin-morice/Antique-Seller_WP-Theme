@@ -1,8 +1,37 @@
-<?php get_header() ?>
+<?php get_header();
+$args = array(
+    'orderby' => 'name',
+    'order' => 'ASC',
+    'parent' => 0,
+    'exclude' => 1,
+  );
+$categories = get_categories($args); 
+?>
 <section>
     <div class="container">
-        <h2 class="pb-3 pt-5">Catalogue</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3  g-4 mb-5">
+        <h2 class="pb-2 pt-5">Catalogue</h2>
+        <p>Filter the articles using the form below.</p>
+            <div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch mb-5 py-4 pt-3 px-4 border rounded">
+                <div class="d-flex flex-column">
+                    <label class="pb-1" for="categories">Category:</label>
+                    <select name="categories" id="selectCategoriesHome" class="p-2 me-lg-2">
+                    <option value="">--Please choose an option--</option>
+                    <?php 
+                        foreach ($categories as $category) {
+                            echo "<option value='" . $category->term_id . "'>" . $category->name . "</option>";
+                        } 
+                    ?>
+                    </select>
+                </div>
+                    <div class="d-flex flex-column">
+                    <label class="pb-1 pt-2 pt-lg-0" for="subcategories">Subcategory (Optional):</label>
+                    <select name="subcategories" id="selectSubcategoriesHome" class="p-2">
+                        <option value="">--Please choose an option--</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary text-white mt-4 mt-lg-0 ms-lg-2 mb-lg-0 pt-2 mt-2" id="searchHome">Search</button>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
             <?php 
             // Call Posts
             while(have_posts()) {

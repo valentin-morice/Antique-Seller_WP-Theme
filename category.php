@@ -12,21 +12,27 @@ $subcategories = get_categories([
   <section class="mb-5">
     <div class="container pt-4">
       <h2 class="mb-4">Category: <?php echo single_cat_title(); ?></h2>
+                <!-- If Browsing a Subcategory -->
                 <?php if($categories->category_parent !== 0) {
                         $parent = get_category($categories->category_parent);
-                        echo "<p>You are browsing the subcategory \""  . single_cat_title('', false) ."\".<br/>Go back to the parent category <a href='/category/" . $parent->slug . "'>" . $parent->cat_name . "</a>.</p>";
+                        echo '<div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch py-4 pt-3 px-4 border rounded">';
+                        echo "<p class='mb-0'><a href='/catalogue'>Catalogue</a>" . "/<a href='/category/" . $parent->slug . "'>" . $parent->cat_name . "</a>/" . single_cat_title('', false) . "</p>";
+                        echo '</div>';
                     } 
                 ?>
+                <!-- If Browsing a Parent Category, Beginning of Form -->
                 <?php if($categories->category_parent === 0) {
                         get_template_part('template_parts/searchCategories');
                     } 
                 ?>
+                <!-- If Browsing a Parent Category, Populate Form -->
                 <?php if ($categories->category_parent === 0) {
                     foreach ($subcategories as $subcategory) {
                         echo "<option value='" . $subcategory->slug . "'>" . $subcategory->name . "</option>";
                     }
                 }
                 ?>
+                <!-- If Browsing a Parent Category, End of Form -->
                 <?php if($categories->category_parent === 0) {
                         get_template_part('template_parts/searchEnd');
                     } 
