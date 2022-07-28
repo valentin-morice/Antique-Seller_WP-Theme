@@ -9,58 +9,26 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <!-- Banner -->
-    <div>
-        <img src="https://i0.wp.com/theantiquegallery.com/wp-content/uploads/2021/12/cropped-Antique-Gallery-300x100px.png?fit=300%2C54&ssl=1" class="mx-auto d-block p-4" alt="Logo">
+    <!-- Navbar -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/">Home</a>
+        <a href="/catalogue">Catalogue</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
     </div>
 
-    <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link active" href="/catalogue">Catalogue</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- Get All Parent Categories -->
-                    <?php 
-                    $args = array(
-                        'orderby' => 'name',
-                        'order' => 'ASC',
-                        'parent' => 0,
-                        'exclude' => 1,
-                      );
-                    $categories = get_categories($args); 
-                    foreach ($categories as $category) {
-                        echo '<li><a class="dropdown-item" href="/category/' . $category->slug . '">' . $category->cat_name . '</a></li>';
-                    }
-                    ?>
-                    </ul>
-                    </li>
-                </ul>
-                <form class="d-flex lg-me-2">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
-        </nav>
+<!-- Use any element to open the sidenav -->
+    <span class="navButton" onclick="openNav()">
+    <ion-icon name="menu-outline"  
+              style="font-size: 48px; background-color: #f1f1f1; top: 30px; left: 30px; position: fixed; padding: 8px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; cursor: pointer;"
+              >
+    </ion-icon></span>
 
         <!-- Header Image -->
         <img 
             src="<?php echo get_template_directory_uri() . "/img/header.jpg" ?>"
-            class="w-100" 
-            style="height: 337px; object-fit: cover; " 
+            class="w-100 mt-0" 
+            style="height: 337px; object-fit: cover; margin-top: 0 !important; margin-top: -25px !important" 
             alt="Sunset"
         >

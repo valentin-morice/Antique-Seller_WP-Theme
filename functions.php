@@ -13,12 +13,14 @@ function add_favicon() {
 }
 add_action('wp_head', 'add_favicon');
 
-// Add jQuery
-function jQueryCDN() {
+// Add jQuery & Ionicons
+function jQueryCDNIonicons() {
 wp_enqueue_script( 'jQueryCDN', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js', array(), '1.0.0', true );
+wp_enqueue_script( 'ionSc1', 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js', array(), '1.0.0', true );
+wp_enqueue_script( 'ionSc2', 'https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js', array(), '1.0.0', true );
 wp_enqueue_script( 'customJS', get_template_directory_uri() . "/js/app.js", false, NULL, "all");
 }
-add_action('wp_enqueue_scripts', 'jQueryCDN');
+add_action('wp_enqueue_scripts', 'jQueryCDNIonicons');
 
 // Add Google Font (Ibarra Real Nova)
 function wpb_add_google_fonts() {
