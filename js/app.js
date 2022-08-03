@@ -57,6 +57,13 @@ $("#searchHome").on("click", function () {
       "/category/" +
       $("#selectSubcategoriesHome").val();
   }
+
+  if ($("#century").val()) {
+    window.location.href =
+        document.location.origin +
+        "?century=" +
+        $("#century").val();
+  }
 });
 
 /* Set the width of the side navigation to 250px */
