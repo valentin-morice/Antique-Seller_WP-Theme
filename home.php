@@ -31,11 +31,26 @@ $categories = get_categories($args);
                 </div>
                 <div class="d-flex flex-column">
                     <label class="pb-1 pt-2 pt-lg-0" for="century">Century (Optional):</label>
-                    <select name="century" id="century" class="p-2">
+                    <select name="century" id="century" class="p-2 me-lg-2">
                         <option value="">--Please choose an option--</option>
                         <?php
                         $terms = get_terms([
                             'taxonomy' => 'century',
+                            'hide_empty' => false,
+                        ]);
+                        foreach ($terms as $term) {
+                            echo "<option value='" . $term->slug . "'>" . ucfirst($term->name) . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="d-flex flex-column">
+                    <label class="pb-1 pt-2 pt-lg-0" for="style">Style: (Optional):</label>
+                    <select name="style" id="style" class="p-2">
+                        <option value="">--Please choose an option--</option>
+                        <?php
+                        $terms = get_terms([
+                            'taxonomy' => 'style',
                             'hide_empty' => false,
                         ]);
                         foreach ($terms as $term) {
@@ -49,7 +64,6 @@ $categories = get_categories($args);
                 </button>
             </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
-                <?php print_r($taxonomies); ?>
                 <?php
                 // Call Posts
                 while (have_posts()) {

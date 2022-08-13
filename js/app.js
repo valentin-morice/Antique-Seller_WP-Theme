@@ -37,13 +37,15 @@ $("#selectCategoriesHome").change(function () {
 $("#searchHome").on("click", function () {
 
     // Sets Category or Subcategory ID in URL Query
-    const category_id = $("#selectSubcategoriesHome").val() ? $("#selectSubcategoriesHome").val() : $("#selectCategoriesHome").val();
+    const category_id = $("#selectSubcategoriesHome").val() ? `cat=${$("#selectSubcategoriesHome").val()}` : `cat=${$("#selectCategoriesHome").val()}`;
+    const century = $("#century").val() ? `&century=${$("#century").val()}` : '';
+    const style = $("#style").val() ? `&style=${$("#style").val()}` : '';
 
     // Build URL Query
-    if ($("#selectCategoriesHome").val() || $("#selectSubcategoriesHome").val() || $("#century").val()) {
+    if ($("#selectCategoriesHome").val() || $("#selectSubcategoriesHome").val() || $("#century").val() || $("#style").val()) {
         window.location.href =
             document.location.origin +
-            "?cat=" + category_id + "&century=" + $("#century").val();
+            "?" + category_id + century + style;
     }
 });
 
