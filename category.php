@@ -16,7 +16,7 @@ $subcategories = get_categories([
                 <?php if($categories->category_parent !== 0) {
                         $parent = get_category($categories->category_parent);
                         echo '<div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch py-4 pt-3 px-4 border rounded">';
-                        echo "<p class='mb-0'><a href='/catalogue'>Catalogue</a>" . "/<a href='/category/" . $parent->slug . "'>" . $parent->cat_name . "</a>/" . single_cat_title('', false) . "</p>";
+                        echo "<p style='margin-bottom: -4px'><a href='/catalogue'>Catalogue</a>" . "/<a href='/category/" . $parent->slug . "'>" . $parent->cat_name . "</a>/" . single_cat_title('', false) . "</p>";
                         echo '</div>';
                     } 
                 ?>
