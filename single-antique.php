@@ -16,6 +16,7 @@
                 $currentPostID = get_the_ID();
                 $style = get_the_terms($currentPostID, 'style',);
                 $century = get_the_terms($currentPostID, 'century');
+                $designer = get_the_terms($currentPostID, 'designer');
                 $categories = wp_get_post_categories($currentPostID, [
                     "fields" => "all",
                     "parent" => 0,
@@ -36,11 +37,29 @@
                                     href="<?php echo get_site_url() . "/category/" . $subcategories[0]->slug ?>"><?php echo $subcategories[0]->name ?></a>
                         </p>
                         <p class="mb-1">Century:
-                            <?php echo "<a href='/century/" . $century[0]->slug . "'>" . $century[0]->name . "</a>" ?>
+                            <?php
+                            if ($century[0]) {
+                                echo "<a href='/century/" . $century[0]->slug . "'>" . $century[0]->name . "</a>";
+                            } else {
+                                echo "<i>Unattributed</i>";
+                            } ?>
                         </p>
-                        <p>Style:
-                            <?php echo "<a href='/style/" . $style[0]->slug . "'>" . $style[0]->name . "</a>";
-                            ?></p>
+                        <p class="mb-1">Style:
+                            <?php
+                            if ($style[0]) {
+                                echo "<a href='/style/" . $style[0]->slug . "'>" . $style[0]->name . "</a>";
+                            } else {
+                                echo "<i>Unattributed</i>";
+                            } ?>
+                        </p>
+                        <p>Designer:
+                            <?php
+                            if ($designer[0]) {
+                                echo "<a href='/designer/" . $designer[0]->slug . "'>" . $designer[0]->name . "</a>";
+                            } else {
+                                echo "<i>Unattributed</i>";
+                            } ?>
+                        </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam natus totam est iure
                             molestias eaque molestiae saepe reprehenderit eligendi quos doloremque perspiciatis
                             exercitationem, harum quae. Ab ducimus repudiandae quasi veritatis?</p>
