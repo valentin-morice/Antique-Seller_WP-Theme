@@ -15,13 +15,13 @@ $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https"
                     echo "Your Search Results:";
                 } ?></h2>
             <!-- If Not a Search -->
-            <?php if (!str_contains($actual_link, '?')) {
-                echo '<div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch py-4 pt-3 px-4 border rounded">';
+            <?php echo '<div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch py-4 pt-3 px-4 border rounded">';
+            if (!str_contains($actual_link, '?')) {
                 echo "<p style='margin-bottom: -4px'><a href='/catalogue'>Catalogue</a>" . "/" . ucfirst($taxonomy->taxonomy) . "/" . single_cat_title('', false) . "</p>";
-                echo '</div>';
             } else {
-                echo "<a href='/catalogue' style='font-size: 18px'><< Back to Catalog</a>";
+                echo "<a href='/catalogue' style='font-size: 18px; margin-bottom: -4px'>< Back to Catalog</a>";
             }
+            echo '</div>';
             ?>
         </div>
     </section>

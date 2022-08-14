@@ -11,11 +11,11 @@ $categories = get_categories($args);
         <div class="container pt-4">
             <h2 class="pb-2">Catalogue</h2>
             <p>Filter the articles using the form below.</p>
-            <div class="d-flex flex-lg-row flex-column align-items-lg-end align-items-lg-start align-items-stretch mb-5 py-4 pt-3 px-4 border rounded">
+            <div class="d-flex flex-xxl-row flex-column align-items-xxl-end align-items-xxl-start align-items-stretch mb-5 py-4 pt-3 px-4 border rounded">
                 <div class="d-flex flex-column">
                     <label class="pb-1" for="selectCategoriesHome">Category:</label>
-                    <select name="categories" id="selectCategoriesHome" class="p-2 me-lg-2">
-                        <option value="">--Please choose an option--</option>
+                    <select name="categories" id="selectCategoriesHome" class="p-2 me-xxl-2">
+                        <option value="">--Choose an option--</option>
                         <?php
                         foreach ($categories as $category) {
                             echo "<option value='" . $category->term_id . "'>" . $category->name . "</option>";
@@ -24,15 +24,15 @@ $categories = get_categories($args);
                     </select>
                 </div>
                 <div class="d-flex flex-column">
-                    <label class="pb-1 pt-2 pt-lg-0" for="selectSubcategoriesHome">Subcategory (Optional):</label>
-                    <select name="subcategories" id="selectSubcategoriesHome" class="p-2 me-lg-2">
-                        <option value="">--Please choose an option--</option>
+                    <label class="pb-1 pt-2 pt-xxl-0" for="selectSubcategoriesHome">Subcategory: (Optional)</label>
+                    <select name="subcategories" id="selectSubcategoriesHome" class="p-2 me-xxl-2">
+                        <option value="">--Choose an option--</option>
                     </select>
                 </div>
                 <div class="d-flex flex-column">
-                    <label class="pb-1 pt-2 pt-lg-0" for="century">Century (Optional):</label>
-                    <select name="century" id="century" class="p-2 me-lg-2">
-                        <option value="">--Please choose an option--</option>
+                    <label class="pb-1 pt-2 pt-xxl-0" for="century">Century: (Optional)</label>
+                    <select name="century" id="century" class="p-2 me-xxl-2">
+                        <option value="">--Choose an option--</option>
                         <?php
                         $terms = get_terms([
                             'taxonomy' => 'century',
@@ -45,9 +45,9 @@ $categories = get_categories($args);
                     </select>
                 </div>
                 <div class="d-flex flex-column">
-                    <label class="pb-1 pt-2 pt-lg-0" for="style">Style: (Optional):</label>
-                    <select name="style" id="style" class="p-2">
-                        <option value="">--Please choose an option--</option>
+                    <label class="pb-1 pt-2 pt-xxl-0" for="style">Style: (Optional)</label>
+                    <select name="style" id="style" class="p-2 me-xxl-2">
+                        <option value="">--Choose an option--</option>
                         <?php
                         $terms = get_terms([
                             'taxonomy' => 'style',
@@ -59,7 +59,22 @@ $categories = get_categories($args);
                         ?>
                     </select>
                 </div>
-                <button class="btn btn-primary text-white mt-4 mt-lg-0 ms-lg-2 mb-lg-0 pt-2 mt-2" id="searchHome">
+                <div class="d-flex flex-column">
+                    <label class="pb-1 pt-2 pt-xxl-0" for="designer">Designer: (Optional)</label>
+                    <select name="designer" id="designer" class="p-2">
+                        <option value="">--Choose an option--</option>
+                        <?php
+                        $terms = get_terms([
+                            'taxonomy' => 'designer',
+                            'hide_empty' => false,
+                        ]);
+                        foreach ($terms as $term) {
+                            echo "<option value='" . $term->slug . "'>" . ucfirst($term->name) . "</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <button class="btn btn-primary text-white mt-4 mt-xxl-0 ms-xxl-2 mb-xxl-0 pt-2 mt-2" id="searchHome">
                     Search
                 </button>
             </div>

@@ -15,7 +15,7 @@ $("#selectSubcategories").change(function () {
 $("#selectCategoriesHome").change(function () {
     $("#selectSubcategoriesHome")
         .empty()
-        .append('<option value="">--Please choose an option--</option>"');
+        .append('<option value="">--Choose an option--</option>"');
     let cat_ID = $(this).val();
     $.get(
         "http://jurrien.local/wp-json/wp/v2/categories?parent=" + cat_ID,
@@ -40,12 +40,13 @@ $("#searchHome").on("click", function () {
     const category_id = $("#selectSubcategoriesHome").val() ? `cat=${$("#selectSubcategoriesHome").val()}` : `cat=${$("#selectCategoriesHome").val()}`;
     const century = $("#century").val() ? `&century=${$("#century").val()}` : '';
     const style = $("#style").val() ? `&style=${$("#style").val()}` : '';
+    const designer = $("#designer").val() ? `&designer=${$("#designer").val()}` : '';
 
     // Build URL Query
-    if ($("#selectCategoriesHome").val() || $("#selectSubcategoriesHome").val() || $("#century").val() || $("#style").val()) {
+    if ($("#selectCategoriesHome").val() || $("#selectSubcategoriesHome").val() || $("#century").val() || $("#style").val() || $("#designer").val()) {
         window.location.href =
             document.location.origin +
-            "?" + category_id + century + style;
+            "?" + category_id + century + style + designer;
     }
 });
 
