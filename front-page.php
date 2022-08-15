@@ -67,23 +67,23 @@
 <!-- Favorite Categories -->
 <section>
     <div class="container">
-        <h2 class="pb-4 pt-5">Favorite Categories</h2>
-        <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-5">
-            <div class="favcatBox d-flex justify-content-center align-items-center mx-auto">
-                <p class="text-uppercase text-light">Title</p>
-            </div>
-            <div class="favcatBox d-flex justify-content-center align-items-center mx-auto">
-                <p class="text-uppercase text-light">Title</p>
-            </div>
-            <div class="favcatBox d-flex justify-content-center align-items-center mx-auto">
-                <p class="text-uppercase text-light">Title</p>
-            </div>
-            <div class="favcatBox d-flex justify-content-center align-items-center mx-auto">
-                <p class="text-uppercase text-light">Title</p>
-            </div>
-            <div class="favcatBox d-flex justify-content-center align-items-center mx-auto">
-                <p class="text-uppercase text-light">Title</p>
-            </div>
+        <h2 class="pb-4 pt-5">All Categories</h2>
+        <div class="d-flex flex-column flex-lg-row gap-3 mb-5">
+            <?php
+            $args = array(
+                'orderby' => 'name',
+                'order' => 'ASC',
+                'parent' => 0
+            );
+            $categories = get_categories($args);
+            foreach ($categories as $category) {
+                if ($category->name !== "Uncategorized") {
+                    echo '<div class="d-flex flex-column align-items-center">' . get_term_thumbnail($category->term_taxonomy_id, "thumbnail");
+                    echo '<a href="/category/' . $category->slug . '" class="text-uppercase pt-1">' . $category->name . '</a>';
+                    echo '</div>';
+                }
+            }
+            ?>
         </div>
     </div>
 </section>

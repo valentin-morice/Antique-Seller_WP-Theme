@@ -29,7 +29,7 @@ wp_enqueue_style( 'wpb-google-fonts-body', 'https://fonts.googleapis.com/css2?fa
 }
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 
-// Add Support for Thumbnails
+// Add Support for Post Thumbnails
 add_theme_support( 'post-thumbnails' );
 
 // Display Antiques in Category Pages
